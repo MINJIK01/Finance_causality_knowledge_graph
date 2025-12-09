@@ -29,29 +29,6 @@ def make_batch_prompt(prompt_version, data_frame):
         prompt = f.read()
         
     prompt = prompt.replace("{events_text}", events_text)
-    # prompt = (
-    #     f"You are an expert in identifying causal relationships between sequential events based on their descriptions and dates.\n\n"
-    #     f"This dataset is from the GDELT event database, which records global events with timestamps and actor information.\n\n"
-    #     f"Here is a list of sequential events:\n\n"
-    #     f"{events_text}\n"
-    #     "--------------------------------------------------\n"
-    #     "Task: Identify plausible causal relationships BETWEEN these events. "
-    #     "Find pairs where an earlier event (Cause) logically led to a later event (Effect).\n\n"
-        
-    #     "Requirements:\n"
-    #     "1. Identify the 'cause_idx' and 'effect_idx' from the list above.\n"
-    #     "2. Strict Temporal Order: The Cause must happen BEFORE the Effect. Future events cannot be the cause of past events. (Check the 'Date' order).\n"
-    #     "3. Counterfactual Check: Verify logical dependency by asking: 'If the Cause had not occurred, would the Effect still have happened?' If the answer is 'Yes', discard it.\n"
-    #     "4. Causal Mechanism: Ensure there is a direct functional link where the Cause actively leads to the Effect (e.g., triggers, causes, requires).\n"
-    #     "5. Provide a brief 'reason': Focus on the mechanism (e.g., 'A triggered B due to...') rather than sequence. (Less than 15 words)\n"
-    #     "6. Ignore unrelated events. If no relationships are found, return [].\n\n"
-
-    #     "Output Format (JSON list):\n"
-    #     "[\n"
-    #     "  {\"cause_idx\": 1, \"effect_idx\": 3, \"reason\": \"The attack in event 1 caused the retaliation in event 3\"},\n"
-    #     "  {\"cause_idx\": 5, \"effect_idx\": 6, \"reason\": \"...\"}\n"
-    #     "]"
-    # )
     
     return prompt
 
