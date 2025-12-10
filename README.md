@@ -23,4 +23,13 @@ To determine if Event A caused Event B, the model applies the following three ch
 ---
 
 
-# Step 2
+## Step 2 Triple Generation (KG Construction)
+Once causal pairs are validated, the system transforms the unstructured text and reasoning into structured Knowledge Graph Triples.
+
+* **Subject:** The primary actor initiating the event (from the Cause).
+* **Predicate:** cause
+* **Object:** The affected entity or event (from the Effect).
+
+This structured format allows for graph-based queries and multi-hop reasoning in downstream financial analysis.
+
+---
